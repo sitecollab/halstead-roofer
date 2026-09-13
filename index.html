@@ -2,13 +2,607 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Colne Valley Roofing — coming soon</title>
-<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colne Valley Roofing — Re-roofing &amp; Emergency Repairs, Halstead</title>
+<meta name="description" content="Fully insured roofing in Halstead, Essex. No cold-calling, written guarantees, and a fast response for storm damage and leaks. Re-roofing, flat roofs, guttering and emergency callouts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ember:#fe2c02;
+    --obsidian:#000000;
+    --void:#050404;
+    --onyx:#0f0d0d;
+    --charcoal:#171615;
+    --graphite:#262828;
+    --smoke:#6f6e6e;
+    --ash:#878686;
+    --fog:#939292;
+    --paper:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--onyx);
+    color:var(--fog);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:300;
+    color:var(--paper);
+    margin:0;
+    line-height:1.15;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-weight:600;
+    color:var(--ember);
+    margin:0 0 16px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:15px 28px;
+    border-radius:9999px;
+    font-weight:600;
+    font-size:15px;
+    border:1px solid rgba(255,255,255,0.18);
+    cursor:pointer;
+    font-family:"Inter",sans-serif;
+    transition:transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--ember);color:var(--paper);border-color:var(--ember);}
+  .btn-ghost{background:rgba(255,255,255,0.04);color:var(--paper);backdrop-filter:blur(6px);}
+
+  /* reveal-on-scroll */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease, transform 0.8s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .reveal-stagger.visible > *{transition-delay:calc(var(--i,0) * 90ms);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .parallax-layer{transform:none !important;}
+  }
+
+  /* placeholders */
+  .ph{
+    position:relative;
+    border-radius:16px;
+    background:
+      linear-gradient(135deg, rgba(254,44,2,0.05) 0%, rgba(254,44,2,0.05) 25%, transparent 25%, transparent 50%, rgba(254,44,2,0.05) 50%, rgba(254,44,2,0.05) 75%, transparent 75%, transparent),
+      linear-gradient(155deg, #201e1d, #100f0e);
+    background-size: 30px 30px, 100% 100%;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .ph-label{
+    background:rgba(0,0,0,0.6);
+    color:var(--paper);
+    font-size:12px;
+    padding:8px 12px;
+    margin:10px;
+    border-radius:6px;
+    line-height:1.4;
+  }
+  img.ph{width:100%;object-fit:cover;display:block;}
+
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:20;padding:20px 0;transition:background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;border-bottom:1px solid transparent;}
+  header.scrolled{background:rgba(15,13,13,0.82);backdrop-filter:blur(10px);border-color:rgba(255,255,255,0.08);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:22px;color:var(--paper);}
+  nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;}
+  nav a{font-size:14px;font-weight:500;color:var(--fog);}
+  nav a:hover{color:var(--paper);}
+  .nav-right{display:flex;align-items:center;gap:22px;}
+  @media (max-width:820px){nav ul{display:none;}}
+
+  /* hero */
+  .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden;}
+  .hero-bg{position:absolute;inset:-10% 0 -10% 0;z-index:0;}
+  .hero-bg .ph{height:100%;border-radius:0;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(5,4,4,0.55) 55%, rgba(5,4,4,0.95) 100%);z-index:1;}
+  .hero-content{position:relative;z-index:2;}
+  .hero h1{font-size:68px;letter-spacing:-0.01em;max-width:14ch;}
+  .hero h1 em{font-style:normal;color:var(--ember);}
+  .hero p.lede{font-size:19px;color:#d9d7d6;margin:24px 0 34px;max-width:46ch;}
+  .hero-ctas{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fog);display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .scroll-cue .line{width:1px;height:34px;background:linear-gradient(var(--ember),transparent);animation:scrollpulse 1.8s ease-in-out infinite;}
+  @keyframes scrollpulse{0%,100%{opacity:0.3;}50%{opacity:1;}}
+  @media (max-width:760px){.hero h1{font-size:42px;}}
+
+  /* trust strip */
+  .trust{padding:56px 0 20px;}
+  .trust-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .trust-pill{
+    display:flex;align-items:center;gap:10px;
+    padding:12px 20px;border-radius:9999px;
+    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(6px);
+    font-size:13.5px;color:var(--paper);font-weight:500;
+  }
+  .trust-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--ember);flex:none;}
+
+  /* section basics */
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:38px;}
+  .section-head p{color:var(--ash);font-size:15.5px;margin-top:14px;}
+
+  /* quote estimator */
+  .estimator{background:var(--charcoal);border-radius:24px;border:1px solid rgba(255,255,255,0.08);padding:44px;}
+  .estimator-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:start;}
+  .est-group{margin-bottom:28px;}
+  .est-group:last-child{margin-bottom:0;}
+  .est-label{font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ash);font-weight:600;margin-bottom:14px;display:block;}
+  .est-options{display:flex;flex-wrap:wrap;gap:10px;}
+  .est-option{
+    padding:11px 18px;border-radius:9999px;
+    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.12);
+    font-size:14px;color:var(--fog);cursor:pointer;font-weight:500;
+    transition:all 0.2s ease;
+  }
+  .est-option:hover{border-color:rgba(255,255,255,0.3);color:var(--paper);}
+  .est-option.active{background:var(--ember);border-color:var(--ember);color:var(--paper);}
+  .est-result{background:var(--onyx);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:32px;position:sticky;top:110px;}
+  .est-result-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--ash);margin-bottom:10px;}
+  .est-price{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:44px;color:var(--paper);line-height:1.1;}
+  .est-price .to{color:var(--ash);font-size:24px;margin:0 8px;}
+  .est-note{font-size:13px;color:var(--smoke);margin-top:16px;line-height:1.6;}
+  .est-cta{margin-top:22px;}
+  @media (max-width:860px){.estimator-grid{grid-template-columns:1fr;}.est-result{position:static;}.estimator{padding:28px;}}
+
+  /* dual path */
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .path-card{
+    border-radius:20px;padding:36px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:var(--charcoal);
+    position:relative;overflow:hidden;
+  }
+  .path-card.urgent{background:linear-gradient(155deg, rgba(254,44,2,0.14), var(--charcoal) 60%);border-color:rgba(254,44,2,0.35);}
+  .path-card h3{font-size:26px;margin-bottom:12px;}
+  .path-card p{font-size:14.5px;color:var(--ash);margin:0 0 22px;}
+  @media (max-width:760px){.paths{grid-template-columns:1fr;}}
+
+  /* services */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .service{background:var(--charcoal);border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;}
+  .service .ph{height:160px;border-radius:0;}
+  .service-copy{padding:22px 22px 26px;}
+  .service-copy h3{font-family:"Inter";font-size:16px;font-weight:600;color:var(--paper);margin-bottom:8px;}
+  .service-copy p{font-size:14px;color:var(--ash);margin:0;}
+  @media (max-width:820px){.services{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.services{grid-template-columns:1fr;}}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+  .about .ph{height:420px;}
+  .about p{color:var(--ash);font-size:15.5px;margin:0 0 16px;}
+  .stat-row{display:flex;gap:36px;margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);}
+  .stat b{display:block;font-size:26px;color:var(--paper);font-weight:300;font-family:"Cormorant Garamond",serif;}
+  .stat span{font-size:12px;color:var(--smoke);text-transform:uppercase;letter-spacing:0.06em;}
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr;}.about .ph{height:280px;}}
+
+  /* work grid */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .work-grid .ph{aspect-ratio:4/3;height:auto;}
+  @media (max-width:820px){.work-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.work-grid{grid-template-columns:1fr;}}
+
+  /* testimonials */
+  .testimonials{background:var(--void);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);}
+  .t-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .t-card{background:var(--charcoal);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:28px 26px;}
+  .t-mark{color:var(--ember);font-family:"Cormorant Garamond",serif;font-size:44px;line-height:1;display:block;margin-bottom:6px;}
+  .t-card p.quote{font-size:16.5px;color:var(--paper);margin:0 0 14px;font-family:"Cormorant Garamond",serif;font-weight:500;font-style:italic;}
+  .t-card p.attr{font-size:13px;color:var(--smoke);margin:0;}
+  @media (max-width:760px){.t-grid{grid-template-columns:1fr;}}
+
+  /* service area */
+  .area{padding:40px 0;text-align:center;}
+  .area p{font-size:14px;color:var(--ash);margin:0;}
+  .area b{color:var(--paper);}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;}
+  .contact dl{margin:18px 0 0;}
+  .contact dt{font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ember);font-weight:600;margin-top:20px;}
+  .contact dt:first-child{margin-top:0;}
+  .contact dd{margin:4px 0 0;font-size:15px;color:var(--paper);}
+  .demo-notice{
+    border:1px solid rgba(254,44,2,0.3);
+    border-left:3px solid var(--ember);
+    background:rgba(254,44,2,0.06);
+    padding:14px 16px;
+    font-size:13px;
+    color:var(--fog);
+    border-radius:6px;
+    margin-bottom:20px;
+  }
+  form{display:flex;flex-direction:column;gap:14px;}
+  form input, form textarea{
+    font-family:inherit;
+    font-size:15px;
+    padding:13px 14px;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+    background:var(--charcoal);
+    color:var(--fog);
+  }
+  form textarea{min-height:110px;resize:vertical;}
+  form button{align-self:flex-start;opacity:0.6;cursor:not-allowed;}
+  @media (max-width:820px){.contact-grid{grid-template-columns:1fr;gap:40px;}}
+
+  footer{border-top:1px solid rgba(255,255,255,0.07);padding:32px 0;background:var(--onyx);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer p{margin:0;font-size:12px;color:var(--smoke);max-width:640px;}
+</style>
 </head>
-<body style="font-family: sans-serif; max-width: 40em; margin: 4em auto; line-height:1.5;">
-<h1>Colne Valley Roofing</h1>
-<p>Page under construction.</p>
-<hr>
-<p style="font-size:0.85em;color:#666;">This is an example site built by SiteCollab to demonstrate our work. It is not a real business.</p>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">Colne Valley Roofing</a>
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="#estimator">Instant Quote</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary" href="#contact">Emergency callout</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg parallax-layer" data-speed="0.35">
+    <div class="ph"><span class="ph-label">Hero — dramatic dusk sky over a freshly re-roofed Halstead house, roofer silhouette on the ridge</span></div>
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow">Roofing — Halstead &amp; North Essex</span>
+    <h1>Fifteen years.<br>No cold calls.<br><em>No pressure.</em></h1>
+    <p class="lede">Fully insured re-roofing, flat roofs and emergency repairs from a local, traceable roofing firm — not the storm-chasers who knock after bad weather.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#estimator">Get an instant estimate</a>
+      <a class="btn btn-ghost" href="#contact">Storm damage or a leak?</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<section class="trust reveal">
+  <div class="wrap trust-row">
+    <div class="trust-pill"><span class="dot"></span>Fully insured</div>
+    <div class="trust-pill"><span class="dot"></span>Written guarantees</div>
+    <div class="trust-pill"><span class="dot"></span>No cold-calling</div>
+    <div class="trust-pill"><span class="dot"></span>15 years trading</div>
+  </div>
+</section>
+
+<section id="estimator">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Instant estimate</span>
+      <h2>Get a ballpark price in seconds</h2>
+      <p>Pick the job and roughly the size of your property — this gives you an instant range so you know what you're working with before booking a proper site visit.</p>
+    </div>
+    <div class="estimator reveal">
+      <div class="estimator-grid">
+        <div>
+          <div class="est-group">
+            <span class="est-label">1. What do you need?</span>
+            <div class="est-options" id="job-options">
+              <button type="button" class="est-option active" data-job="reroof-full">Full re-roof</button>
+              <button type="button" class="est-option" data-job="reroof-partial">Partial re-roof</button>
+              <button type="button" class="est-option" data-job="flatroof">Flat roof replacement</button>
+              <button type="button" class="est-option" data-job="guttering">Guttering, fascia &amp; soffit</button>
+              <button type="button" class="est-option" data-job="leak">Emergency leak repair</button>
+              <button type="button" class="est-option" data-job="inspection">Roof inspection</button>
+            </div>
+          </div>
+          <div class="est-group" id="size-group">
+            <span class="est-label">2. Roughly what size?</span>
+            <div class="est-options" id="size-options">
+              <button type="button" class="est-option" data-size="0.7">Small — terrace / bungalow</button>
+              <button type="button" class="est-option active" data-size="1">Medium — semi-detached</button>
+              <button type="button" class="est-option" data-size="1.45">Large — detached</button>
+            </div>
+          </div>
+        </div>
+        <div class="est-result">
+          <div class="est-result-label">Estimated range</div>
+          <div class="est-price"><span id="price-low">£4,200</span><span class="to">&ndash;</span><span id="price-high">£6,000</span></div>
+          <p class="est-note">Ballpark only — a proper quote needs a site visit to check access, roof condition and materials. This calculator is a demo for illustration and isn't a real pricing tool.</p>
+          <div class="est-cta"><a class="btn btn-primary" href="#contact">Book a site visit</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Two kinds of job</span>
+      <h2>Planning ahead, or need someone now?</h2>
+    </div>
+    <div class="paths reveal">
+      <div class="path-card">
+        <h3>Planning a re-roof</h3>
+        <p>Full or partial re-roof, flat roof renewal, or a general roof health check. No pressure, no pushy upsell — just a clear, written quote once we've actually seen the roof.</p>
+        <a class="btn btn-ghost" href="#services">See services</a>
+      </div>
+      <div class="path-card urgent">
+        <h3>Storm damage or a leak</h3>
+        <p>Active leak or damage after bad weather? We prioritise emergency callouts and won't try to sell you a full re-roof you don't need.</p>
+        <a class="btn btn-primary" href="#contact">Request a callout</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Roofing, done properly</h2>
+    </div>
+    <div class="services reveal-stagger reveal">
+      <div class="service" style="--i:0">
+        <div class="ph"><span class="ph-label">Roofer fitting new roof tiles on a pitched roof</span></div>
+        <div class="service-copy"><h3>Full &amp; partial re-roofing</h3><p>Tile and slate re-roofing, done to a written specification and guarantee.</p></div>
+      </div>
+      <div class="service" style="--i:1">
+        <div class="ph"><span class="ph-label">Flat roof being fitted with EPDM rubber membrane</span></div>
+        <div class="service-copy"><h3>Flat roof replacement</h3><p>Felt, EPDM and GRP flat roofing for extensions, garages and outbuildings.</p></div>
+      </div>
+      <div class="service" style="--i:2">
+        <div class="ph"><span class="ph-label">Roofer carrying out an emergency repair after a storm</span></div>
+        <div class="service-copy"><h3>Emergency leak &amp; storm callout</h3><p>Fast, traceable response to active leaks and storm damage — no pressure tactics.</p></div>
+      </div>
+      <div class="service" style="--i:3">
+        <div class="ph"><span class="ph-label">New guttering and fascia being fitted along a roofline</span></div>
+        <div class="service-copy"><h3>Guttering, fascia &amp; soffit</h3><p>Full replacement or repair, matched to the rest of the roofline.</p></div>
+      </div>
+      <div class="service" style="--i:4">
+        <div class="ph"><span class="ph-label">Roofer inspecting tiles closely on a rooftop</span></div>
+        <div class="service-copy"><h3>Roof inspections &amp; maintenance</h3><p>A proper health check before small issues become expensive ones.</p></div>
+      </div>
+      <div class="service" style="--i:5">
+        <div class="ph"><span class="ph-label">Close-up of chimney repointing and lead flashing repair</span></div>
+        <div class="service-copy"><h3>Chimney repointing &amp; flashing</h3><p>Repointing and flashing repair around chimneys and roof junctions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="ph reveal"><span class="ph-label">Portrait of two brothers, roofers, standing together on-site in work gear</span></div>
+    <div class="reveal">
+      <span class="eyebrow">About</span>
+      <h2>Two brothers, fifteen years, no shortcuts</h2>
+      <p>Steve and Paul Whitlock trained as roofers with separate contractors around North Essex before pooling their tools and vans in 2011 to go out on their own.</p>
+      <p>Roofing is one trade where cold-call pressure and "storm chaser" cowboys are a well-known local problem. Colne Valley Roofing leans the other way: local, traceable, fully insured, and every re-roof comes with a written guarantee.</p>
+      <div class="stat-row">
+        <div class="stat"><b>15</b><span>Years trading</span></div>
+        <div class="stat"><b>2011</b><span>Founded</span></div>
+        <div class="stat"><b>0</b><span>Cold calls</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Recent work</span>
+      <h2>A few roofs we've worked on</h2>
+    </div>
+    <div class="work-grid reveal-stagger reveal">
+      <div class="ph" style="--i:0"><span class="ph-label">Completed tile re-roof on a detached house, dusk light</span></div>
+      <div class="ph" style="--i:1"><span class="ph-label">Flat roof extension with new EPDM membrane fitted</span></div>
+      <div class="ph" style="--i:2"><span class="ph-label">New guttering and fascia fitted along a roofline</span></div>
+      <div class="ph" style="--i:3"><span class="ph-label">Repointed chimney stack with new lead flashing</span></div>
+      <div class="ph" style="--i:4"><span class="ph-label">Close-up of neatly laid roof tiles in afternoon light</span></div>
+      <div class="ph" style="--i:5"><span class="ph-label">Roofer on a ladder carrying out a roof inspection</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap" style="padding:60px 0;">
+    <div class="t-grid reveal">
+      <div class="t-card">
+        <span class="t-mark">"</span>
+        <p class="quote">Called after the January storm — out the same day, no pressure to sign anything on the spot.</p>
+        <p class="attr">— Halstead</p>
+      </div>
+      <div class="t-card">
+        <span class="t-mark">"</span>
+        <p class="quote">Fully explained what needed doing and what didn't. Didn't try to sell us a full re-roof we didn't need.</p>
+        <p class="attr">— Sible Hedingham</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area">
+  <div class="wrap">
+    <p>Based near Halstead, also covering <b>Sible Hedingham</b>, <b>Gosfield</b> and <b>Earls Colne</b>.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2 style="font-size:32px;">Book a visit or a callout</h2>
+      <dl>
+        <dt>Based in</dt>
+        <dd>Halstead, Essex</dd>
+        <dt>Hours</dt>
+        <dd>Mon–Sat 7am–6pm, emergency callouts by arrangement</dd>
+        <dt>Coverage</dt>
+        <dd>Halstead, Sible Hedingham, Gosfield, Earls Colne</dd>
+      </dl>
+    </div>
+    <div class="reveal">
+      <div class="demo-notice">This is a demo site built by SiteCollab. The form below is disabled — no messages are sent or stored.</div>
+      <form>
+        <input type="text" placeholder="Your name" disabled>
+        <input type="email" placeholder="Email address" disabled>
+        <textarea placeholder="Tell us about the roof, or describe the damage" disabled></textarea>
+        <button class="btn btn-primary" type="button" disabled>Form disabled — demo site</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>This is an example site built by SiteCollab to demonstrate our work. It is not a real business.</p>
+    <p>© Colne Valley Roofing — a SiteCollab portfolio demo</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // header background on scroll
+  const header = document.getElementById('site-header');
+  function onScroll(){
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // parallax hero layer
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const parallaxLayers = document.querySelectorAll('.parallax-layer');
+  if (!reduceMotion && parallaxLayers.length){
+    function onParallax(){
+      const y = window.scrollY;
+      parallaxLayers.forEach(function(layer){
+        const speed = parseFloat(layer.dataset.speed || '0.3');
+        layer.style.transform = 'translateY(' + (y * speed) + 'px)';
+      });
+    }
+    window.addEventListener('scroll', onParallax, {passive:true});
+    onParallax();
+  }
+
+  // scroll-reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion){
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  // instant quote estimator
+  const jobPricing = {
+    'reroof-full':   {low:6000, high:12000, sizeApplies:true},
+    'reroof-partial':{low:2500, high:5000,  sizeApplies:true},
+    'flatroof':      {low:1800, high:4500,  sizeApplies:true},
+    'guttering':     {low:800,  high:2200,  sizeApplies:true},
+    'leak':          {low:150,  high:450,   sizeApplies:false},
+    'inspection':    {low:120,  high:250,   sizeApplies:false}
+  };
+  let currentJob = 'reroof-full';
+  let currentSize = 1;
+
+  const jobOptions = document.querySelectorAll('#job-options .est-option');
+  const sizeOptions = document.querySelectorAll('#size-options .est-option');
+  const sizeGroup = document.getElementById('size-group');
+  const priceLowEl = document.getElementById('price-low');
+  const priceHighEl = document.getElementById('price-high');
+
+  function formatGBP(n){
+    return '£' + Math.round(n).toLocaleString('en-GB');
+  }
+
+  function animateTo(el, target){
+    const start = parseInt((el.textContent || '0').replace(/[^0-9]/g, ''), 10) || 0;
+    const duration = 400;
+    const startTime = performance.now();
+    function step(now){
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = start + (target - start) * eased;
+      el.textContent = formatGBP(value);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = formatGBP(target);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function updateEstimate(){
+    const job = jobPricing[currentJob];
+    const sizeMultiplier = job.sizeApplies ? currentSize : 1;
+    const low = job.low * sizeMultiplier;
+    const high = job.high * sizeMultiplier;
+    sizeGroup.style.opacity = job.sizeApplies ? '1' : '0.35';
+    sizeGroup.style.pointerEvents = job.sizeApplies ? 'auto' : 'none';
+    if (reduceMotion){
+      priceLowEl.textContent = formatGBP(low);
+      priceHighEl.textContent = formatGBP(high);
+    } else {
+      animateTo(priceLowEl, low);
+      animateTo(priceHighEl, high);
+    }
+  }
+
+  jobOptions.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      jobOptions.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentJob = btn.dataset.job;
+      updateEstimate();
+    });
+  });
+
+  sizeOptions.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      sizeOptions.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentSize = parseFloat(btn.dataset.size);
+      updateEstimate();
+    });
+  });
+
+  updateEstimate();
+})();
+</script>
+
 </body>
 </html>
