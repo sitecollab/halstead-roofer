@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://halstead-roofer.sitecollab.co.uk/sitemap.xml
